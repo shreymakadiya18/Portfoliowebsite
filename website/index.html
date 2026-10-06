@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>try{var t=localStorage.getItem('theme')||'dark';document.documentElement.dataset.theme=t}catch(e){document.documentElement.dataset.theme='dark'}</script>
+<title>Shrey Makadiya | Full-Stack Software Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070716;--bg2:#0d0d24;--ink:#e8e9ff;--mute:#8d90b8;
+  --cyan:#22e6ff;--pink:#ff2bd6;--line:rgba(120,130,255,.22);
+  --display:'Unbounded','Trebuchet MS',sans-serif;--body:'Manrope','Segoe UI',sans-serif;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+:root{--btnink:#04041a;color-scheme:dark}
+:root[data-theme="light"]{--bg:#f4f5ff;--bg2:#ffffff;--ink:#12123a;--mute:#4a4d80;--cyan:#0083a6;--pink:#c0129f;--line:rgba(60,60,160,.22);--btnink:#ffffff;color-scheme:light}
+:root[data-theme="light"] .grp,:root[data-theme="light"] .stat,:root[data-theme="light"] .card,:root[data-theme="light"] .ed{box-shadow:0 8px 28px rgba(40,40,120,.09)}
+:root[data-theme="light"] #glow{opacity:.5}
+body,nav,.grp,.stat{transition:background-color .35s,border-color .35s,color .35s}
+*,*::before,*::after{box-sizing:border-box}
+html{height:auto;scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.7 var(--body);overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+h1,h2,h3{font-family:var(--display);line-height:1.1;margin:0}
+h2{font-size:clamp(1.6rem,4vw,2.6rem);margin-bottom:2.5rem}
+section{padding:6.5rem 6vw;max-width:1180px;margin:auto}
+p{max-width:64ch}
+
+/* nav */
+nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:1rem 6vw;background:color-mix(in srgb,var(--bg) 78%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.logo{font-family:var(--display);font-weight:700;font-size:1rem}
+.logo b{color:var(--cyan)}
+nav ul{display:flex;gap:1.6rem;list-style:none;margin:0;padding:0;align-items:center}
+nav a.l{font-size:.92rem;color:var(--mute);transition:color .2s}
+nav a.l:hover,nav a.l.on{color:var(--cyan)}
+#theme{background:none;border:1px solid var(--line);color:var(--ink);border-radius:50%;width:36px;height:36px;cursor:pointer;font-size:1rem}
+#theme:hover{border-color:var(--cyan)}
+@media(max-width:720px){nav ul li:not(:last-child){display:none}}
+
+/* hero */
+#hero{position:relative;min-height:100vh;max-width:none;display:flex;align-items:center;padding-top:7rem;overflow:hidden}
+#net{position:absolute;inset:0;width:100%;height:100%}
+.hero-in{position:relative;max-width:1180px;margin:auto;width:100%;pointer-events:none}
+.hero-in a,.hero-in button{pointer-events:auto}
+.hi{color:var(--cyan);font-family:var(--display);font-size:.95rem;margin:0 0 1rem}
+h1{font-size:clamp(2.4rem,8.5vw,6rem);font-weight:700;letter-spacing:-.02em}
+h1 .glitch{position:relative;display:inline-block;background:linear-gradient(90deg,var(--cyan),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
+.role{font-family:var(--display);font-size:clamp(1rem,2.6vw,1.6rem);margin:1.4rem 0 1.2rem;min-height:2.2em;color:var(--mute)}
+.role span{color:var(--ink)}
+.caret{display:inline-block;width:.6ch;height:1em;background:var(--pink);vertical-align:-.12em;margin-left:3px;animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+.tag{color:var(--mute);margin-bottom:2rem}
+.btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn{display:inline-block;padding:.85rem 1.7rem;border-radius:999px;font-weight:700;border:1px solid var(--cyan);color:var(--cyan);transition:.25s;cursor:pointer;background:none;font-family:var(--body);font-size:1rem}
+.btn.fill{background:var(--cyan);color:var(--btnink);box-shadow:0 0 24px color-mix(in srgb,var(--cyan) 55%,transparent)}
+.btn:hover{transform:translateY(-3px);box-shadow:0 0 30px color-mix(in srgb,var(--pink) 60%,transparent);border-color:var(--pink)}
+.hero-in>*{animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+.hero-in>*:nth-child(2){animation-delay:.12s}.hero-in>*:nth-child(3){animation-delay:.24s}.hero-in>*:nth-child(4){animation-delay:.36s}.hero-in>*:nth-child(5){animation-delay:.48s}
+@keyframes rise{from{opacity:0;transform:translateY(30px)}}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.rv.in{opacity:1;transform:none}
+
+/* about */
+.about{display:grid;grid-template-columns:1.4fr 1fr;gap:3rem;align-items:start}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.stat{border:1px solid var(--line);border-radius:14px;padding:1.3rem;background:var(--bg2)}
+.stat b{display:block;font-family:var(--display);font-size:2rem;color:var(--cyan)}
+.stat span{color:var(--mute);font-size:.9rem}
+@media(max-width:800px){.about{grid-template-columns:1fr}}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.4rem}
+.grp{border:1px solid var(--line);border-radius:14px;padding:1.5rem;background:var(--bg2)}
+.grp h3{font-size:1rem;margin-bottom:1.2rem;color:var(--pink)}
+.sk{margin-bottom:1rem;font-size:.92rem}
+.sk div{display:flex;justify-content:space-between;margin-bottom:.35rem}
+.bar{height:6px;border-radius:6px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;width:0;border-radius:6px;background:linear-gradient(90deg,var(--cyan),var(--pink));transition:width 1.4s cubic-bezier(.2,.8,.2,1);box-shadow:0 0 10px var(--cyan)}
+
+/* projects */
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.6rem}
+.card{position:relative;border:1px solid var(--line);border-radius:16px;padding:1.8rem;background:var(--bg2);transform-style:preserve-3d;transition:transform .15s,border-color .3s,box-shadow .3s;overflow:hidden}
+.card::before{content:"";position:absolute;inset:0;background:radial-gradient(320px circle at var(--mx,50%) var(--my,0%),color-mix(in srgb,var(--cyan) 22%,transparent),transparent 60%);opacity:0;transition:opacity .3s}
+.card:hover{border-color:var(--cyan);box-shadow:0 0 34px color-mix(in srgb,var(--cyan) 25%,transparent)}
+.card:hover::before{opacity:1}
+.card>*{position:relative}
+.card h3{font-size:1.15rem;margin-bottom:.8rem}
+.card p{color:var(--mute);font-size:.95rem;margin:0 0 1.2rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.2rem}
+.chips span{font-size:.78rem;padding:.2rem .7rem;border-radius:999px;border:1px solid var(--line);color:var(--cyan)}
+.links a{color:var(--pink);font-weight:700;margin-right:1.2rem;font-size:.92rem}
+.links a:hover{text-decoration:underline}
+
+/* timeline */
+.tl{position:relative;padding-left:2rem;border-left:2px solid var(--line)}
+.tl::after{content:"";position:absolute;left:-2px;top:0;width:2px;height:var(--prog,0%);background:linear-gradient(var(--cyan),var(--pink));box-shadow:0 0 12px var(--cyan)}
+.job{position:relative;margin-bottom:2.6rem}
+.job::before{content:"";position:absolute;left:calc(-2rem - 7px);top:.55rem;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--cyan)}
+.job time{color:var(--pink);font-size:.85rem;font-weight:700}
+.job h3{font-size:1.1rem;margin:.3rem 0}
+.job h4{margin:0 0 .6rem;color:var(--mute);font-weight:500}
+.job ul{margin:0;padding-left:1.1rem;color:var(--mute);max-width:64ch}
+
+/* education */
+.edu{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.4rem}
+.ed{border:1px solid var(--line);border-top:3px solid var(--pink);border-radius:14px;padding:1.5rem;background:var(--bg2);transition:transform .25s,border-color .25s,box-shadow .25s}
+.ed:hover{transform:translateY(-6px);border-color:var(--cyan);box-shadow:0 0 28px color-mix(in srgb,var(--pink) 25%,transparent)}
+.ed time{color:var(--pink);font-size:.85rem;font-weight:700}
+.ed h3{font-size:1.05rem;margin:.5rem 0 .3rem}
+.ed h4{margin:0 0 .8rem;color:var(--cyan);font-weight:500}
+.ed p{margin:0;color:var(--mute);font-size:.94rem}
+
+/* contact */
+.contact{display:grid;grid-template-columns:1fr 1.2fr;gap:3rem}
+.contact form{display:grid;gap:1rem}
+input,textarea{width:100%;background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:.9rem 1rem;color:var(--ink);font:inherit;transition:border-color .2s,box-shadow .2s}
+input:focus,textarea:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 16px color-mix(in srgb,var(--cyan) 35%,transparent)}
+label{font-size:.85rem;color:var(--mute);display:grid;gap:.4rem}
+.soc{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.4rem}
+.soc a{border:1px solid var(--line);border-radius:999px;padding:.45rem 1.1rem;font-size:.9rem;transition:.2s}
+.soc a:hover{border-color:var(--pink);color:var(--pink)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.field{display:grid;gap:.4rem}.field label{font-size:.85rem;color:var(--mute)}.form-status{color:var(--cyan);min-height:1.5em}.form-status.err{color:var(--pink)}@media(max-width:520px){.form-row{grid-template-columns:1fr}}
+@media(max-width:800px){.contact{grid-template-columns:1fr}}
+footer{text-align:center;color:var(--mute);padding:2.5rem 1rem;border-top:1px solid var(--line);font-size:.88rem}
+
+/* cursor glow */
+#glow{position:fixed;width:380px;height:380px;border-radius:50%;pointer-events:none;z-index:0;background:radial-gradient(circle,color-mix(in srgb,var(--pink) 16%,transparent),transparent 65%);transform:translate(-50%,-50%);left:-999px;top:-999px}
+main,nav,footer{position:relative;z-index:1}
+nav{position:fixed;z-index:30}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .rv{opacity:1;transform:none}.bar i{width:var(--w)!important}
+}
+</style>
+</head>
+<body>
+<div id="glow" aria-hidden="true"></div>
+
+<nav>
+  <a class="logo" href="#hero">&lt;<b>SM</b>/&gt;</a>
+  <ul>
+    <li><a class="l" href="#about">About</a></li>
+    <li><a class="l" href="#skills">Skills</a></li>
+    <li><a class="l" href="#projects">Projects</a></li>
+    <li><a class="l" href="#experience">Experience</a></li>
+    <li><a class="l" href="#education">Education</a></li>
+    <li><a class="l" href="#contact">Contact</a></li>
+    <li><button id="theme" aria-label="Toggle light and dark theme">☾</button></li>
+  </ul>
+</nav>
+
+<main>
+<section id="hero">
+  <canvas id="net" aria-hidden="true"></canvas>
+  <div class="hero-in">
+    <p class="hi">Hi, I'm</p>
+    <h1><span class="glitch">Shrey Makadiya</span></h1>
+    <div class="role">I build <span id="typed"></span><i class="caret"></i></div>
+    <p class="tag">Full-stack software engineer building secure, automated enterprise solutions with ASP.NET Core, Angular and SQL Server.</p>
+    <div class="btns">
+      <a class="btn fill" href="#projects">View my projects</a>
+      <a class="btn" href="#contact">Get in touch</a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <h2 class="rv">About me</h2>
+  <div class="about rv">
+    <div>
+      <p>I'm a full-stack software engineer at Adani Infra in Ahmedabad. I design automated enterprise solutions across the whole software life cycle, from database design and secure APIs to responsive single-page apps.</p>
+      <p>I turn complex business requirements into cloud-hosted microservices and scalable web applications. I work mainly with ASP.NET Core, Angular 17+, Node.js and SQL Server, and I'm currently preparing for the Microsoft Azure AI-200 certification.</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><b data-n="90" data-s="%">0</b><span>Faster budget approvals with PDN</span></div>
+      <div class="stat"><b data-n="40" data-s="%">0</b><span>Less manual document tracking with DPM</span></div>
+      <div class="stat"><b data-n="9.02" data-s="">0</b><span>CGPA in B.Tech Computer Science</span></div>
+      <div class="stat"><b data-n="4" data-s="">0</b><span>Flipkart Grid editions</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <h2 class="rv">Skills</h2>
+  <div class="skills rv"><div class="grp"><h3>Backend</h3><div class="chips"><span>ASP.NET Core</span><span>Entity Framework Core</span><span>LINQ</span><span>Node.js</span><span>Django (Python)</span><span>REST APIs</span><span>JWT Authentication</span><span>Microservices</span><span>Dependency Injection</span><span>Repository Pattern</span></div></div><div class="grp"><h3>Frontend</h3><div class="chips"><span>TypeScript</span><span>Angular 17+</span><span>React</span><span>RxJS</span><span>SPA</span><span>Responsive Design</span></div></div><div class="grp"><h3>Cloud &amp; DevOps</h3><div class="chips"><span>Azure DevOps Pipelines</span><span>CI/CD</span><span>Azure Storage</span><span>Azure Functions</span><span>Azure Key Vault</span><span>GitHub Actions</span><span>Docker Compose</span><span>Containerization</span></div></div><div class="grp"><h3>Database</h3><div class="chips"><span>SQL Server</span><span>PostgreSQL</span><span>Database Design</span><span>Stored Procedures</span><span>Query Optimization</span></div></div><div class="grp"><h3>Practices</h3><div class="chips"><span>Agile</span><span>Scrum</span><span>Code Review</span><span>Unit Testing</span><span>Debugging</span><span>SDLC</span></div></div></div>
+</section>
+
+<section id="projects">
+  <h2 class="rv">Projects</h2>
+  <div class="projects rv"><article class="card"><h3>Commissioning Data Management &amp; Validation Tool</h3><p>Automated tool that pulls commissioning data from three engineering systems into one platform. It validates Hydrotest Package mappings (loop tags, isometrics, equipment, instruments) and flags missing, duplicate and inconsistent data for the O&amp;M team.</p><div class="chips"><span>ASP.NET Core</span><span>Angular</span><span>SQL Server</span></div></article><article class="card"><h3>Potential Deviation Note (PDN)</h3><p>Budget variance app for project teams: create, approve (Approved, Rejected, Rejected with Modification), modify and report on PDNs, with automated email notifications at every step. Cut approval turnaround by 90%.</p><div class="chips"><span>ASP.NET Core</span><span>Angular</span><span>SQL Server</span></div></article><article class="card"><h3>Document Progress Monitor (DPM)</h3><p>Document management system that tracks vendor documents received by email, with one central view of incoming and outgoing files. Cut manual tracking effort by 40% across departments.</p><div class="chips"><span>ASP.NET Core</span><span>Angular</span><span>SQL Server</span></div></article><article class="card"><h3>Virtual Healthcare Assistant</h3><p>Minor project: an AI assistant that gives health information, reminders and proactive health recommendations.</p><div class="chips"><span>Django</span><span>AI</span><span>HTML</span><span>CSS</span></div></article></div>
+</section>
+
+<section id="experience">
+  <h2 class="rv">Experience</h2>
+  <div class="tl rv" id="tl"><div class="job"><time>04/2025 – Present</time><h3>Assistant Manager</h3><h4>Adani Infra India Limited, Ahmedabad</h4><ul><li>Designed and developed the PDN application that project teams use to monitor budget variances, cutting approval turnaround by 90%.</li><li>Stack: ASP.NET Core, Angular, SQL Server.</li></ul></div><div class="job"><time>02/2025 – 03/2025</time><h3>Senior Engineer</h3><h4>Adani Infra India Limited, Ahmedabad</h4><ul><li>Built and deployed the Document Progress Monitor (DPM), reducing manual document tracking by 40% across departments.</li><li>Stack: ASP.NET Core, Angular, SQL Server.</li></ul></div><div class="job"><time>08/2024 – 01/2025</time><h3>Graduate Engineer Trainee</h3><h4>Adani Infra India Limited, Ahmedabad</h4><ul><li>Gained working proficiency in Angular and ASP.NET Core to industry standards.</li><li>Contributed to backend and frontend modules under mentorship.</li></ul></div><div class="job"><time>01/2024 – 05/2024</time><h3>Software Developer Intern</h3><h4>DP Infosoft, Ahmedabad</h4><ul><li>Built financial software with TypeScript, React, Node.js and PostgreSQL.</li><li>Implemented secure backend services and responsive React interfaces.</li></ul></div><div class="job"><time>05/2023 – 07/2023</time><h3>Full Stack Developer Intern</h3><h4>Cloud Ladder Consulting, Irving, TX, USA</h4><ul><li>Built web applications with HTML5, CSS3, JavaScript and Django.</li><li>Developed on AWS Cloud9, stored files on S3, and hosted the site on AWS.</li></ul></div></div>
+</section>
+
+<section id="education">
+  <h2 class="rv">Education</h2>
+  <div class="edu rv"><article class="ed"><time>2020 – 2024</time><h3>B.Tech in Computer Science &amp; Engineering</h3><h4>Pandit Deendayal Energy University, Gandhinagar</h4><p>CGPA 9.02 / 10.</p></article><article class="ed"><time>In progress</time><h3>Microsoft Azure AI-200</h3><h4>Certification</h4><p>Currently preparing for the exam.</p></article><article class="ed"><time>Achievement</time><h3>Flipkart Grid</h3><h4>Participant</h4><p>Took part in Flipkart Grid 2.0, 3.0, 4.0 and 5.0.</p></article></div>
+</section>
+
+<section id="contact">
+  <h2 class="rv">Contact</h2>
+  <div class="contact rv">
+    <div>
+      <p>Have a project, job opening or idea? Send a message and I'll get back to you.</p>
+      <p><a href="mailto:shreymakadiya18@gmail.com" style="color:var(--cyan)">shreymakadiya18@gmail.com</a><br><a href="tel:+919106248529" style="color:var(--mute)">+91 910-624-8529</a></p>
+      <div class="soc"><a href="https://github.com/shreymakadiya18" target="_blank" rel="noopener">GitHub</a><a href="https://linkedin.com/in/shrey-makadiya-b47a26212" target="_blank" rel="noopener">LinkedIn</a></div>
+    </div>
+    <form class="contact-form" id="contactForm" action="https://formsubmit.co/shreymakadiya18@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="New message from portfolio site">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+      <div class="form-row">
+        <div class="field"><label for="name">Name</label><input type="text" id="name" name="Name" placeholder="Your name" autocomplete="name" required></div>
+        <div class="field"><label for="email">Email</label><input type="email" id="email" name="Email" placeholder="you@example.com" autocomplete="email" required></div>
+      </div>
+      <div class="field"><label for="message">Message</label><textarea id="message" name="Message" rows="5" placeholder="What are you reaching out about?" required></textarea></div>
+      <button type="submit" class="btn fill" id="submitBtn">Send message →</button>
+      <div class="form-status" id="formStatus" role="status"></div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>© <span id="yr"></span> Shrey Makadiya. Designed and built by hand.</footer>
+
+<script>
+// year
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+// theme
+const root=document.documentElement,tb=document.getElementById('theme');
+tb.textContent=root.dataset.theme==='light'?'☀':'☾';tb.title='Switch to '+(root.dataset.theme==='light'?'night':'day')+' mode';
+tb.onclick=()=>{const l=root.dataset.theme==='light'?'dark':'light';root.dataset.theme=l;tb.textContent=l==='light'?'☀':'☾';tb.title='Switch to '+(l==='light'?'night':'day')+' mode';try{localStorage.setItem('theme',l)}catch(e){};col()};
+
+// typing effect
+const words=['enterprise web apps.','ASP.NET Core APIs.','Angular interfaces.','cloud-ready microservices.'];
+const el=document.getElementById('typed');let w=0,c=0,del=false;
+(function type(){
+  const s=words[w];el.textContent=s.slice(0,c);
+  if(!del&&c===s.length){del=true;return setTimeout(type,1400)}
+  if(del&&c===0){del=false;w=(w+1)%words.length}
+  c+=del?-1:1;setTimeout(type,del?40:85);
+})();
+
+// particle network
+const cv=document.getElementById('net'),cx=cv.getContext('2d');
+let W,H,pts=[],m={x:-999,y:-999},cyan,pink;
+function col(){const s=getComputedStyle(root);cyan=s.getPropertyValue('--cyan').trim();pink=s.getPropertyValue('--pink').trim()}
+col();
+function size(){W=cv.width=cv.offsetWidth;H=cv.height=cv.offsetHeight;
+  pts=Array.from({length:Math.min(90,Math.floor(W*H/14000))},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.5,vy:(Math.random()-.5)*.5}))}
+size();addEventListener('resize',size);
+cv.parentElement.addEventListener('pointermove',e=>{const r=cv.getBoundingClientRect();m.x=e.clientX-r.left;m.y=e.clientY-r.top});
+cv.parentElement.addEventListener('pointerleave',()=>{m.x=m.y=-999});
+const still=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function draw(){
+  cx.clearRect(0,0,W,H);
+  for(const p of pts){
+    if(!still){p.x+=p.vx;p.y+=p.vy}
+    if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;
+    const dx=p.x-m.x,dy=p.y-m.y,d=Math.hypot(dx,dy);
+    if(d<140){p.x+=dx/d*1.6;p.y+=dy/d*1.6}
+    cx.fillStyle=cyan;cx.globalAlpha=.9;cx.beginPath();cx.arc(p.x,p.y,1.8,0,7);cx.fill();
+  }
+  for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){
+    const a=pts[i],b=pts[j],d=Math.hypot(a.x-b.x,a.y-b.y);
+    if(d<130){cx.globalAlpha=(1-d/130)*.45;cx.strokeStyle=cyan;cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(b.x,b.y);cx.stroke()}
+  }
+  for(const p of pts){const d=Math.hypot(p.x-m.x,p.y-m.y);if(d<170){cx.globalAlpha=(1-d/170)*.8;cx.strokeStyle=pink;cx.beginPath();cx.moveTo(p.x,p.y);cx.lineTo(m.x,m.y);cx.stroke()}}
+  requestAnimationFrame(draw);
+}
+draw();
+
+// cursor glow + card spotlight/tilt
+const g=document.getElementById('glow');
+addEventListener('pointermove',e=>{g.style.left=e.clientX+'px';g.style.top=e.clientY+'px'});
+document.querySelectorAll('.card').forEach(k=>{
+  k.addEventListener('pointermove',e=>{const r=k.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;
+    k.style.setProperty('--mx',x+'px');k.style.setProperty('--my',y+'px');
+    if(!still)k.style.transform=`perspective(700px) rotateY(${(x/r.width-.5)*8}deg) rotateX(${-(y/r.height-.5)*8}deg)`});
+  k.addEventListener('pointerleave',()=>k.style.transform='');
+});
+
+// reveal, counters, bars
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;const t=e.target;t.classList.add('in');io.unobserve(t);
+  t.querySelectorAll('.bar i').forEach(b=>{b.style.setProperty('--w',b.dataset.w+'%');b.style.width=b.dataset.w+'%'});
+  t.querySelectorAll('[data-n]').forEach(n=>{const to=+n.dataset.n;let v=0;const st=Math.max(1,to/60);
+    (function up(){v=Math.min(to,v+st);n.textContent=(to%1?v.toFixed(2):Math.round(v))+(n.dataset.s||'');if(v<to)requestAnimationFrame(up)})()});
+}),{threshold:.2});
+document.querySelectorAll('.rv').forEach(e=>io.observe(e));
+
+// timeline progress
+const tl=document.getElementById('tl');
+function prog(){const r=tl.getBoundingClientRect();tl.style.setProperty('--prog',Math.max(0,Math.min(100,(innerHeight*.7-r.top)/r.height*100))+'%')}
+addEventListener('scroll',prog,{passive:true});prog();
+
+// active nav link
+const links=[...document.querySelectorAll('nav a.l')];
+const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-45% 0px -50% 0px'});
+document.querySelectorAll('main section').forEach(s=>so.observe(s));
+
+// contact form (opens the visitor's email app)
+// Contact form: posts to FormSubmit without leaving the page
+(()=>{
+  const form=document.getElementById('contactForm'),btn=document.getElementById('submitBtn'),st=document.getElementById('formStatus');
+  const to='shreymakadiya18@gmail.com';
+  form.addEventListener('submit',async e=>{
+    e.preventDefault();
+    if(form.querySelector('[name=_honey]').value)return;
+    btn.disabled=true;btn.textContent='Sending...';st.className='form-status';st.textContent='';
+    try{
+      const r=await fetch(form.action.replace('formsubmit.co/','formsubmit.co/ajax/'),{method:'POST',headers:{Accept:'application/json'},body:new FormData(form)});
+      const d=await r.json();
+      if(!r.ok||d.success==='false'||d.success===false)throw new Error(d.message||'failed');
+      st.textContent='Message sent. Thanks, I will reply soon.';form.reset();
+    }catch(err){
+      st.className='form-status err';st.innerHTML='Could not send right now. Please email me at <a href="mailto:'+to+'" style="text-decoration:underline">'+to+'</a>.';
+    }
+    btn.disabled=false;btn.textContent='Send message →';
+  });
+})();
+</script>
+</body>
+</html>
